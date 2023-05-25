@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>freeCodeCamp Survey Form</title>
+    </head>
+    <body>
+        <h1 id="title">Registro de Usuario</h1>
+        <p id="description">Complete el siguiente formulario para hacer valida su registro:</p>
+        <div>
+            <form id="survey-form" required>
+                <fieldset>
+                    <label id="name-label" for="name">
+                        Nombre: <input id="name" type="text" placeholder="Ingrese su nombre..." required/>
+                    </label>
+                    <label id="last-name-label" for="last-name">
+                        Apellidos: <input id="last-name" type="text" placeholder="Ingrese sus apellidos..." required/>
+                    </label>
+                    <label id="email-label" for="email">
+                        Email: <input id="email" type="email" placeholder="Ingrese su correo..." required/>
+                    </label>
+                    <label id="number-label" for="number">
+                        Edad (optional): <input id="number" type="number" min="13" max="120" placeholder="Ingrese su edad..."/>
+                    </label>
+                    <label id="gender-label" for="cropdown">
+                        Género:
+                        <select id="dropdown" required>
+                            <option disabled selected value>Selecione una opción...</option>
+                            <option value="Female">Femenino</option>
+                            <option value="Male">Masculino</option>
+                            <option value="Other">Otro</option>
+                        </select>
+                    </label>
+                    <label id="password-label" for="password">
+                        Crea una nueva contraseña (Solo caracteres y números):
+                        <input id="password" type="password" pattern="[a-zA-Z0-9]{8,20}" placeholder="(Min 8-Max 20) caracteres..."/ required>
+                    </label>
+                    <label id="confirm-password-label" for="confirm-password">
+                        Confirme su contraseña:
+                        <input id="confirm-password" type="password" pattern="[a-zA-Z0-9]{8,20}" placeholder="Vuelva a introducir su contraseña..." required/>
+                    </label>
+                </fieldset>
+                <hr>
+                <fieldset>
+                    <label id="personal-account-label" for="personal-account">
+                        <input id="personal-account" value="personal-account" type="radio" name="account-type" class="inline" value="personal-account"/> Cuenta personal
+                    </label> 
+                    <label id="business-account-label" for="business-account">
+                        <input id="business-account" value="business-account" type="radio" name="account-type" class="inline" value="business-account"/> Cuenta empresa
+                    </label>
+                    <label id="term-and-conditions-label" for="term-and-conditions-label">
+                        <input id="term-and-conditions" value="term-and-conditions-accepted" class="inline" type="checkbox" required/>
+                        Acepto los terminos y condiciones
+                    </label>
+                    <label id="notifications-label" for="notifications">
+                        <input id="notifications" value="notifications-accepted" class="inline" type="checkbox"/>
+                        Quiero recibir notificaciones acerca de novedades
+                    </label>
+                </fieldset>
+                <hr>
+                <fieldset>
+                    <label id="profile-picture-label" for="profile-picture">
+                        Suba una foto de perfil (opcional):
+                        <input id="profile-picture" type="file"/>
+                    </label>
+                    <label id="comment-label" for="comment">
+                        Comentarios (Opcional):
+                        <textarea id="comment" rows="4" cols="30" placeholder="Deje su comentario..."></textarea>
+                    </label>
+                </fieldset>
+                <input id="submit"type="submit" class="submit" value="Registrarse"/>
+            </form>
+        </div>
+    </body>
+</html>

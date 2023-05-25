@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Technical Documentation</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header>Documentación de Java</header>
+        <nav id="navbar"></nav>
+        <ul>
+            <li><a class="nav-link" href="#Introducción_a_Java"> Introducción a Java</a></li>
+            <li><a class="nav-link" href="#Variables"> Variables</a></li>
+            <li><a class="nav-link" href="#Tipos_de_Variables"> Tipos de Variables</a></li>
+            <li><a class="nav-link" href="#Tipos_de_Datos_Primitivos"> Tipos de Datos Primitivos</a></li>
+            <li><a class="nav-link" href="#Expresiones,_sentencias_y_bloques"> Expresiones, sentencias y bloques</a></li>
+            <li><a class="nav-link" href="#Operadores_de_Asignación_y_Aritméticos"> Operadores de Asignación y Aritméticos</a></li>
+            <li><a class="nav-link" href="#Operadores_Unarios"> Operadores Unarios</a></li>
+            <li><a class="nav-link" href="#Operadores_Igualdad_y_Relacionales"> Operadores Igualdad y Relacionales</a></li>
+            <li><a class="nav-link" href="#Operadores_Condicionales"> Operadores Condicionales</a></li>
+            <li><a class="nav-link" href="#Sentencias_de_Control"> Sentencias de Control</a></li>
+            <li><a class="nav-link" href="#Sentencias_de_Decisión"> Sentencias de Decisión</a></li>
+            <li><a class="nav-link" href="#Sentencias_de_Bucle"> Sentencias de Bucle</a></li>
+            <li><a class="nav-link" href="#Sentencias_de_Ramificación"> Sentencias de Ramificación</a></li>
+            <li><a class="nav-link" href="#Arrays"> Arrays</a></li>
+            <li><a class="nav-link" href="#Referencias"> Referencias</a></li>
+        </ul>
+        <img src="https://www.manualweb.net/img/logos/java.png" alt="java.img">
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introducción_a_Java">
+            <header class="main-header">Introducción a Java</header>
+            <p><b>Java</b> es un lenguaje de programación de propósito general, tipado, orientado a objetos,… que permite el desarrollo desde aplicaciones básicas, pasando por aplicaciones empresariales hasta aplicaciones móviles.</p>
+
+            <p>Java nacía como un lenguaje de programación que pudiese ser multiplataforma y multidispositivo, bajo el paradigma “Write Once Run Anywhere” (WORA)</p>
+                
+            <p>De esta forma un programa Java escrito una vez podemos ejecutarle sobre diferentes plataformas, siendo soportados los sistemas operativos Windows, MacOs y UNIX. Y a su vez en diferentes tipos de dispositivos.</p>
+                
+            <p>Para poder seguir este paradigma la compilación de un programa Java no genera código fuente, si no que genera <b>bytecodes</b>. Estos <b>bytecodes</b> son interpretados por una máquina virtual o <b>JVM (Java Virtual Machine)</b>. Dicha máquina ya está escrita para cada uno de los sistemas operativos en cuestión.</p>
+        </section>
+        <section class="main-section" id="Variables">
+            <header class="main-header">Variables</header>
+            <p>Las variables Java son un espacio de memoria en el que guardamos un determinado valor (o dato). Para definir una variable seguiremos la estructura:</p>
+            <div class="code">
+                <code>[privacidad] tipo_variable identificador;</code>
+            </div>
+            <p>Java es un lenguaje de tipado estático. Por lo cual todas las variables tendrán un tipo de dato (ya sea un <b>tipo de dato primitivo</b> o una <b>clase</b>) y un nombre de identificador.</p>
+            <p>El tipo de dato se asignará a la hora de definir la variable. Además, en el caso de que las variables sean propiedades de objetos tendrán una privacidad.</p>
+            <p>Ejemplos de variables serían…</p>
+            <div class="code">
+                <code>int numero = 2;
+                String cadena = "Hola";
+                long decimal = 2.4;
+                boolean flag = true;</code>
+            </div>
+            <p>Las variables tambien son utilizadas como propiedades dentro de los objetos.</p>
+            <div class="code">
+                <code>class Triangulo {
+                    private long base; 
+                    private long altura;
+                    }</code>
+            </div>
+            <br>
+            <br>
+        </section>
+        <section class="main-section" id="Tipos_de_Variables">
+            <header class="main-header"> Tipos de Variables</header>
+            <p>Dentro de Java podemos encontrar los siguientes tipos de variables:</p>
+            <ul>
+                <li><b>Variables de instancia (campos no estáticos)</b>, son las variables que están definidas dentro de un objeto pero que no tienen un modificador de estáticas (static). Suelen llevar un modificador de visibilidad (public, private, protected) definiéndose.</li>
+                <br>
+                <div class="code">
+                    <code>class Triangulo { 
+                        private long base; 
+                        private long altura;
+                    }</code>
+                </div>
+                <br>
+                <br>
+                <li><b>Variables de clase (campos estáticos)</b>, son aquellas variables que están precedidas del modificador static. Esto indica que solo hay una instancia de dicha variable. Es decir, aunque tengamos N objetos de la clase, la variable estática solo se instancia una vez.</li>
+                <br>
+                <div class="code">    
+                    <code>class Triangulo { 
+                        static long lados = 3; 
+                    }</code>
+                </div>
+                <p>Si además queremos que el valor no pueda cambiar nunca la definiremos como final.</p>
+                <div class="code">   
+                    <code>class Matematicas { 
+                        final static long PI = 3.14159; 
+                    }</code>
+                </div>
+                <br>
+                <br>
+                <li><b>Variables locales</b>, son variables temporales cuyo ámbito de visibilidad es el método sobre el que están definidas. No pueden ser accedidas desde otra parte del código. Se las distingue de las variables de instancia ya que estas no llevan modificadores de visibilidad delante.</li>
+                <br>
+                <div class="code">
+                    <code>int variable = 2;</code>
+                </div>
+                <br>
+                <br>
+                <li><b>Parámetros</b>, son las variables recibidas como parámetros de los métodos. Su visibilidad será el código que contenga dicho método.</li>
+                <br>
+                <div class="code">
+                    <code>public Triangulo(long base, long altura){...}</code>
+                </div>
+                <br>
+                <br>
+            </ul>
+        </section>
+        <section class="main-section" id="Tipos_de_Datos_Primitivos">
+            <header class="main-header">Tipos de Datos Primitivos</header>
+            <h1>¿Qué son los tipos de datos primitivos en Java?</h1>
+            <p>Como ya hemos comentado Java es un lenguaje de tipado estático. Es decir, se define el tipo de dato de la variable a la hora de definir esta. Es por ello que todas las variables tendrán un tipo de dato asignado.</p>
+            <p>El lenguaje Java da de base una serie de tipos de datos primitivos: </p>
+            <ul>
+                <li><b>Byte:</b> Representa un tipo de dato de 8 bits con signo. De tal manera que puede almacenar los valores numéricos de -128 a 127 (ambos inclusive).</li>
+                <li><b>Short:</b> Representa un tipo de dato de 16 bits con signo. De esta manera almacena valores numéricos de -32.768 a 32.767.</li>
+                <li><b>Int:</b> Es un tipo de dato de 32 bits con signo para almacenar valores numéricos. Cuyo valor mínimo es -231 y el valor máximo 231-1.</li>
+                <li><b>Long:</b> Es un tipo de dato de 64 bits con signo que almacena valores numéricos entre -263 a 263-1</li>
+                <li><b>Float:</b> Es un tipo dato para almacenar números en coma flotante con precisión simple de 32 bits.</li>
+                <li><b>Double:</b> Es un tipo de dato para almacenar números en coma flotante con doble precisión de 64 bits.</li>
+                <li><b>Boolean:</b> Sirve para definir tipos de datos booleanos. Es decir, aquellos que tienen un valor de true o false. Ocupa 1 bit de información.</li>
+                <li><b>Char:</b> Es un tipo de datos que representa a un carácter Unicode sencillo de 16 bits.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Expresiones,_sentencias_y_bloques">
+            <header class="main-header">Expresiones, sentencias y bloques</header>
+            <p>Un programa en <b>Java</b> se compone de un conjunto de sentencias que se ejecutan para resolver un problema. Las sentencias son el elemento básico de ejecución de los programa <b>Java</b>.</p>
+            <p>A parte de las sentencias, en un programa Java nos encontraremos con expresiones y bloques.</p>
+            <h1>Expresiones</h1>
+            <p>Una expresión es un conjunto de variables, operadores e invocaciones de métodos que se construyen para poder ser evaluadas retornando un resultado.</p>
+            <p>Ejemplos de expresiones son:</p>
+            <div class="code">
+                <code>int valor = 1; 
+                    if (valor 1 > valor2) { ... }</code>
+            </div>
+            <br>
+                
+            <p>Cuando tengamos expresiones de evaluación complejas es recomendable que utilicemos paréntesis para saber cual es el orden de ejecución de operaciones.</p>
+            <p>Ya que si tenemos una expresión como</p>
+            <div class="code">
+                <code>2 + 10 / 5</code>
+            </div>
+            <br>
+            <p>No será la misma si ponemos</p>
+            <div class="code">    
+                <code>(2 + 10) / 5</code>
+            </div>
+            <br>
+            <p>ó</p>
+            <div class="code"><  
+                <code>2 + (10 / 5)</code>
+            </div>
+            <br>
+            <p>En el caso de no utilizar paréntesis se ejecutará el orden de preferencia de operadores. En este caso la división tiene más preferencia que la suma.</p>
+            <br>
+            <h1>Sentencias</h1>
+            <p>Una sentencia es la unidad mínima de ejecución de un programa. Un programa se compone de conjunto de sentencias que acaban resolviendo un problema. <b>Al final de cada una de las sentencias encontraremos un punto y coma (;).</b></p>
+            <p>Tenemos los siguientes tipos de sentencias.</p>
+            <h2>Sentencias de declaración</h2>
+            <div class="code">                
+                <code>int valor = 2;</code>
+            </div>
+            <h2>Sentencias de asignación</h2>
+            <div class="code">   
+                <code>valor = 2;</code>
+            </div>
+            <h2>Sentencias de incremento o decremento</h2>
+            <div class="code">
+                <code>valor++;</code>
+            </div>
+            <h2>invocaciones a métodos</h2>
+            <div class="code">        
+                <code>System.out.println("Hola Mundo");</code>
+            </div>
+            <h2>Creaciones de Objetos</h2>
+            <div class="code">
+                <code>Circulo miCirculo = new Circulo(2,3);</code>
+            </div>
+            <h2>Sentencias de control de flujo</h2>
+            <div class="code">  
+                <code>if (valor>1) { … }</code>
+            </div>
+            <h1>Bloques</h1>
+            <p>Un bloque es un conjunto de sentencias los cuales están delimitados por llaves.</p>
+            <div class="code">  
+                <code>if (expresion) { 
+                    // Bloque 1 
+                } else { <br>
+                    // Bloque 2 
+                }</code>
+            </div>
+            <br>
+            <br>
+        </section>
+        <section class="main-section" id="Operadores_de_Asignación_y_Aritméticos">
+            <header class="main-header">Operadores de Asignación y Aritméticos</header>
+            <h1>Operador de Asignación</h1>
+            <p>El operador Java más sencillo es el <b>operador de asignación</b>. Mediante este operador se asigna un valor a una variable. El operador de asignación es el símbolo igual.</p>
+            <p>La estructura del operador de asignación es:</p>
+            <div class="code">
+                <code>variable = valor;</code>
+            </div>
+            <br>
+            <p>Así podemos asignar valores a variables de tipo entero, cadena,…</p>
+            <div class="code">  
+                <code>int numero = 3; 
+                    String cadena = "Hola Mundo"; 
+                    double decimal = 4.5; 
+                    boolean verdad = true;
+                </code>
+            </div>
+            <br>
+            <br>
+            <h1>Operadores Aritméticos</h1>
+            <p>Los operadores aritméticos en Java son los operadores que nos permiten realizar operaciones matemáticas: <b>suma, resta, multiplicación, división y resto.</b></p>
+            <p>Los operadores aritméticos en Java son:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Operador de Suma. Concatena cadenas para la suma de String</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Operador de Resta</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Operador de Multiplicación</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Operador de División</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Operador de Resto</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Los operadores aritméticos en Java los utilizaremos entre dos literales o variables y el resultado, normalmente lo asignaremos a una variable o bien lo evaluamos.</p>
+            <div class="code">
+                <code>variable = (valor1|variable1) operador (valor2|variable2);</code>
+            </div>
+            <p>Así podemos tener los siguientes usos en el caso de que queramos asignar su valor.</p>
+            <div class="code"> 
+                <code>suma = 3 + 7;             // Retorna 10
+                    resta = 5 - 2;            // Retorna 3
+                    multiplicacion = 3 * 2;   // Retorna 6
+                    division = 4 / 2;         // Retorna 2
+                    resto = 5 % 3;            // Retorna 2</code>
+            </div>
+            <p>Ten en cuenta que pueden ser valores o variables:</p>
+            <div class="code">
+                <code>suma = vble1 + 3;   // Sumamos 3 al valor de la variable vble1 <
+                    resta = vble1 - 4;  // Restamos 4 al valor de la variable vble1 
+                    ...</code>
+            </div>
+            <p>O podríamos utilizarlo en una condición</p>
+            <div class="code">
+                <code>if (variable > suma + 3) { ... }</code>
+            </div>
+            <p>En este caso no asignamos el resultado de la suma a una variable, solo lo evaluamos.</p>
+        </section>
+        <section class="main-section" id="Operadores_Unarios">
+            <header class="main-header">Operadores Unarios</header>
+            <h1></h1>
+            <p>Los operadores unarios en Java son aquellos que solo requieren un operando para funcionar.</p>
+            <p>Los <b>operadores</b> unitarios que tenemos en Java son:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Operador unario suma. Indica un número positivo.</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Operador unario resta. Niega una expresión.</td>
+                    </tr>
+                    <tr>
+                        <td>++</td>
+                        <td>Operador de incremento. Incrementa el valor en 1.</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>Operador de decremento. Decrementa el valor en 1.</td>
+                    </tr>
+                    <tr>
+                        <td>!</td>
+                        <td>Operador de complemento lógico. Invierte el valor de un booleano</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+        </section>
+        <section class="main-section" id="Operadores_Igualdad_y_Relacionales">
+            <header class="main-header">Operadores Igualdad y Relacionales</header>
+            <p>Los operadores de igualdad y relacionales en Java son aquellos que nos permiten comparar el contenido de una variable contra otra atendiendo a si son variables con un valor igual o distinto o bien si los valores son mayores o menores.</p>
+            <p>El listado de operadores de igualdad y relacionales en Java es:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>==</td>
+                        <td>igual a</td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>no igual a</td>
+                    </tr>
+                    <tr>
+                        <td>></td>
+                        <td>mayor que</td>
+                    </tr>
+                    <tr>
+                        <td>>=</td>
+                        <td>mayor o igual que</td>
+                    </tr>
+                    <tr>
+                        <td><</td>
+                        <td>menor que</td>
+                    </tr>
+                    <tr>
+                        <td><=</td>
+                        <td>menor o igual que</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+        </section>
+        <section class="main-section" id="Operadores_Condicionales">
+            <header class="main-header">Operadores Condicionales</header>
+            <p>Los operadores condicionales en Java son aquellos que evalúan dos expresiones booleanas.</p>
+            <p>Dentro de los operadores condicionales en Java tenemos:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&&</td>
+                        <td>Operador condicional AND</td>
+                    </tr>
+                    <tr>
+                        <td>||</td>
+                        <td>Operador condicional OR</td>
+                    </tr>
+                    <tr>
+                        <td>?:</td>
+                        <td>Operador Ternario</td>
+                    </tr>
+                    <tr>
+                        <td>instanceof</td>
+                        <td>Operador instanceof</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="main-section" id="Sentencias_de_Control">
+            <header class="main-header">Sentencias de Control</header>
+            <p>Un programa en Java se ejecuta en orden desde la primera sentencia hasta la última.</p>
+            <p>Si bien existen las <b>sentencias de control de flujo</b> las cuales permiten alterar el fujo de ejecución para tomar decisiones o repetir sentencias.</p>
+            <p>Dentro de las <b>sentencias de control de flujo</b> tenemos las siguientes:</p>
+            <ul>
+                <li>Sentencias de decisión</li>
+                <li>Sentencias de bucle</li>
+                <li>Sentencias de ramificación</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Sentencias_de_Decisión">
+            <header class="main-header">Sentencias de Decisión</header>
+            <p>Las <b>sentencias de decisión</b> son sentencias que nos permiten tomar una decisión para poder ejecutar un bloque de sentencias u otro.</p>
+            <p>Las <b>sentencias de decisión</b> son: if-then-else y switch.</p>
+            <h1>If-then-else</h1>
+            <p>La estructura de las sentencias <b>if-then-else es:</b></p>
+            <div class="code">
+                <code>if (expresion) { 
+                    // Bloque then     
+                } else {             
+                    // Bloque else     
+                }</code>
+            </div>
+            <p>Se evalua la expresión indicada en la sentencia <b>if</b>. En el caso de que la expresión sea <b>true</b> se ejecutará el bloque de sentencias <b>then</b> y en el caso de que la expresión sea <b>false</b> se ejecutará el bloque de sentencias <b>else</b>.</p>
+            <p>La parte del <b>else</b> no tiene por qué existir. En este caso tendríamos una sentencia <b>if-then.</b></p>
+            <div class="code">   
+                <code>
+                    if (expresion) {   
+                        // Bloque then 
+                    }
+                </code>
+            </div>
+            <p>De esta forma podríamos tener el siguiente código fuente:</p>
+            <div class="code"> 
+                <code>int valor = 4;                                    
+                    if (valor < 10) {                                   
+                    System.out.println("El número es menor de 10");   
+                    } else {                                            
+                    System.out.println("El número es mayor de 10");   
+                    }</code>
+            </div>
+            <p>Las sentencias <b>if-then-else</b> pueden estar anidadas y así nos encontraríamos con una sentencia <b>if-then-elseif</b>, la cual tendría la siguiente estructura:</p>
+            <div class="code">   
+                <code>if (expresion) { 
+                    // Bloque then     
+                } else if {          
+                    // Bloque else     
+                } else if {          
+                    // Bloque else    
+                } else if {          
+                    // Bloque else     
+                } ...</code>
+            </div>
+            <p>De esta forma podemos tener el siguiente código:</p>
+            <div class="code"> 
+                <code>int valor = 14;                                  
+
+                    if (valor < 10) {                                  
+                    System.out.println("El valor es una unidad");    
+                    } else if (valor < 100) {                          
+                    System.out.println("El valor es una decena");    
+                    } else if (valor < 1000) {                         
+                    System.out.println("El valor es una centena");   
+                    } else if (valor < 10000) {                        
+                    System.out.println("El valor es un millar");     
+                    } else {                                           
+                    System.out.println("Es un número grande");       
+                    }</code>
+            </div>
+            <h1>Switch</h1>
+            <p>Para los casos en los que se tienen muchas ramas o caminos de ejecución en una sentencia <b>if</b> tenemos la sentencia <b>switch</b>. La sentencia <b>switch</b> evalúa una expresión y ejecutará el bloque de sentencias que coincida con el valor de la expresión.</p>
+            <p>El valor de la expresión tiene que ser numérico. Aunque a partir de Java SE 7 ya se pueden utilizar expresiones cuya evaluación sean cadenas.</p>
+            <p>La estructura de la sentencia switch es:</p>
+            <div class="code">   
+                <code>switch (expresion) {   
+                    case valor1:             
+                    bloque1;               
+                    break;                
+                    case valor2:             
+                    bloque2;               
+                    break;                 
+                    case valor3:             
+                    bloque3;               
+                    break;                 
+                    ...                      
+                    default:                 
+                        bloque_por_defecto;  
+                }</code>
+            </div>
+            <p>Es importante ver que se utiliza la sentencia <b>break</b>. La sentencia <b>break</b> hace que se salga de la sentencia <b>switch</b> y por lo tanto no se evalúe el resto de sentencias. Por lo tanto su uso es obligatorio al final de cada uno de los bloques.</p>
+            <p>Un ejemplo claro en el que podemos utilizar la sentencia <b>switch</b> es para evaluar el valor de un mes en numérico y convertirlo a cadena. Este código quedaría de la siguiente forma:</p>
+            <div class="code">
+                <code>int iMes = 3;                     
+                    String sMes;
+                
+                    switch (iMes) {
+                        case 1:
+                            sMes = "Enero";
+                            break;
+                        case 2:
+                            sMes = "Febrero";
+                            break;
+                        case 3:
+                            sMes = "Marzo";
+                            break;
+                        case 4:
+                            sMes = "Abril";
+                            break;
+                        case 5:
+                            sMes = "Mayo";
+                            break;
+                        case 6:
+                            sMes = "Junio";
+                            break;
+                        case 7:
+                            sMes = "Julio";
+                            break;
+                        case 8:
+                            sMes = "Agosto";
+                            break;
+                        case 9:
+                            sMes = "Septiembre";
+                            break;
+                        case 10:
+                            sMes = "Octubre";
+                            break;
+                        case 11:
+                            sMes = "Noviembre";
+                            break;
+                        case 12:
+                            sMes = "Diciembre";
+                            break;
+                        default:
+                            sMes = "Mes incorrecto";
+                    }
+                
+                    System.out.println(sMes);</code>
+            </div>
+            <p>Este mismo modelo lo podríamos haber implementado mediante una estructura <b>if-then-else</b>. Si bien, como podemos ver en el código queda más complejo</p>  
+            <div class="code">
+                <code>if (iMes == 1){
+                    sMes = "Enero";
+                } else if (iMes == 2) {
+                    sMes = "Febrero";
+                } else if (iMes == 3) {
+                    sMes = "Marzo";
+                } else if (iMes == 4) {
+                    sMes = "Abril";
+                } else if (iMes == 5) {
+                    sMes = "Mayo";
+                } else if (iMes == 6) {
+                    sMes = "Junio";
+                } else if (iMes == 7) {
+                    sMes = "Julio";
+                } else if (iMes == 8) {
+                    sMes = "Agosto";
+                } else if (iMes == 9) {
+                    sMes = "Septiembre";
+                } else if (iMes == 10) {
+                    sMes = "Octubre";
+                } else if (iMes == 11) {
+                    sMes = "Noviembre";
+                } else if (iMes == 12) {
+                    sMes = "Diciembre";
+                } else {
+                    sMes = "Mes incorrecto";
+                }
+            
+                System.out.println(sMes);</code>
+            </div>
+            <p>Otra cosa que tenemos que saber de la sentencia <b>switch</b> es que las evaluaciones case pueden ser múltiples. La estructura en este caso sería:</p>          
+            <div class="code">   
+                <code>switch (expresion) {
+                    case valor1: case valor2: case valor3:
+                    bloque1;
+                    break;
+                    case valor4: case valor5: case valor6:
+                    bloque2;
+                    break;
+                    ...
+                    default:
+                    bloque_por_defecto;
+                }</code>
+            </div>
+            <p>Esto podemos utilizarlo para saber los días del mes. El código sería el siguiente:</p>
+            <div class="code">   
+                <code>int iMes = 3;
+                    String sDias;
+                
+                    switch (iMes) {
+                        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                            sDias = "El mes tiene 31 días";
+                            break;
+                        case 4: case 6: case 9: case 11:
+                            sDias = "El mes tiene 30 días";
+                            break;
+                        case 2:
+                            sDias = "El mes tiene 28 días (o 29 días si es año bisiesto)";
+                            break;          
+                        default:
+                            sDias = "Mes incorrecto";
+                    }</code>
+            </div>
+            <p>Como vemos tenemos diferentes evaluaciones con la sentencia <b>case</b>.</p>
+        </section>        
+        <section class="main-section" id="Sentencias_de_Bucle">
+            <header class="main-header">Sentencias de Bucle</header>
+            <p>Las <b>sentencias de bucle</b> nos van a permitir ejecutar un bloque de sentencias tantas veces como queramos, o tantas veces como se cumpla una condición.</p>
+            <p>Las <b>sentencias</b> de bucle en Java son: <b>while, do-while y for</b></p>
+            <h1>While</h1>
+            <p>La estructura repetitiva <b>while</b> realiza una primera evaluación antes de ejecutar el bloque. Si la expresión es <b>true</b> pasa a ejecutar de forma repetida el bloque de sentencias.</p>
+            <p>Cada vez que termina de ejecutar el bloque de sentencias vuelve a evaluar la expresión. Si la expresión sigue siendo <b>true</b> vuelve a ejecutar el bloque. En el caso de que la expresión sea <b>false</b> se saldrá del bucle.</p>
+            <p>Es por ello que dentro del bloque de sentencias <i>deberán de existir sentencias que modifiquen la evaluación de la expresión, ya que de no hacerse se podría entrar en un bucle infinito.</i></p>
+            <p>La estructura de la sentencia <b>while</b> es la siguiente:</p>
+            <div class="code">   
+                <code>while (expresion) {
+                    bloque_sentencias;
+                }</code>
+            </div>
+            <p>Los casos de uso de una sentencia repetitiva <b>while</b> son variados, pero principalmente se utiliza para recorrer estructuras de datos o tener contadores.</p>
+            <p>Por ejemplo podemos realizar un contador de 1 a 10 de la siguiente forma:</p>
+            <div class="code"> 
+                <code>int contador = 1;
+                    while (contador <= 10) {
+                    System.out.println(contador);
+                    contador++;
+                    }</code>
+            </div>
+            <h1>Do-while</h1>
+            <p>En el caso de la estructura repetitiva <b>do-while</b> el funcionamiento es el mismo que el de <b>while</b>. Pero con una diferencia, primero se ejecuta el bloque de sentencias y luego se evalua la expresión. Por lo tanto siempre se ejecutará, al menos una vez, el bloque de sentencias.</p>
+            <p>La estructura de la sentencia <b>do-while</b> es:</p>
+            <div class="code">
+                <code>do {
+                    bloque_sentencias;
+                } while (expresion)</code>
+            </div>
+            <p>Al igual que anteriormente, en el bloque de sentencias deberemos de modificar alguna de las condiciones de la expresión para poder salir del bucle.</p>
+            <p>Un ejemplo claro del bucle <b>do-while</b> sería el ejemplo en el que le pedimos al usuario que introduzca números por teclado, los cuales mostraremos en forma de eco por pantalla, hasta que introduzca el cero. En ese caso saldremos del bucle.</p>
+            <p>Utilizaremos la estructura <b>do-while</b> en vez de la <b>while</b> ya que al menos vamos a pedirle al usuario un número.</p>
+            <p>El código sería el siguiente:</p>
+            <div class="code">  
+                <code>Scanner reader = new Scanner(System.in);        
+                    int iNumero;
+                
+                    do {
+                        System.out.println("Introduce carácter por consola");
+                        iNumero = reader.nextInt();
+                        System.out.println(iNumero);
+                    } while (iNumero <> 0);</code>
+            </div>
+            <p>En el caso de haberlo realizado con un bucle <b>while</b> tendríamos que repetir la captura y salida de datos. Veamos como quedaría para que puedas ver las diferencias.</p>
+            <div class="code">
+                <code>Scanner reader = new Scanner(System.in);        
+                    int iNumero;
+                
+                    System.out.println("Introduce carácter por consola");
+                    iNumero = reader.nextInt();
+                    System.out.println(iNumero);
+                
+                    while (iNumero <> 0) {
+                    System.out.println("Introduce carácter por consola");
+                    iNumero = reader.nextInt();
+                    System.out.println(iNumero);
+                    }
+                    </code>
+            </div>
+            <h1>For</h1>
+            <p>Otra de las sentencias repetitivas que tenemos, a parte de los bucles <b>while</b> y <b>do-while</b>, es la sentencia <b>for</b>.</p>
+            <p>La sentencia <b>for</b> tiene la característica de que tiene bien definido el inicio del bloque, la evaluación de la expresión, el incremento de valor y el bloque de sentencias.</p>
+            <p>La estructura del bucle <b>for</b> es:</p>
+            <div class="code">
+                <code>for (sentencias_inicio;expresion;incremento) {
+                    bloque_sentencias;
+                }</code>
+            </div>
+            <p>Tanto las sentencias_inicio, expresión como incremento son opcionales y pueden estar o no. Aunque normalmente aparecerán en la estructura.</p>
+            <p>Esta estructura la podríamos reproducir mediante una sentencia while de la siguiente forma:</p>
+            <div class="code">
+                <code>sentencias_inicio;
+                    while (expresion) {
+                    bloque_sentencias;
+                    incremento;
+                    }</code>
+            </div>
+            <p>Las funcionalidades en las que utilizaremos la sentencia <b>for</b> serán las mismas que las sentencias <b>while</b> y <b>do-while</b>, que serán contadores, recorrer estructuras,…</p>
+            <p>Si queremos definir un contador de 1 a 10 mediante una sentencia <b>for</b> utilizaremos el siguiente código:</p>
+            <div class="code">
+                <code>for (int x=1;x<=10;x++=) {
+                    System.out.println("Valor del contador: " + x);
+                }</code>
+            </div>
+            <p>En pantalla obtendremos el siguiente resultado:</p>
+            <div class="code">
+                <code>Valor del contador: 1
+                    Valor del contador: 2
+                    Valor del contador: 3
+                    Valor del contador: 4
+                    Valor del contador: 5
+                    Valor del contador: 6
+                    Valor del contador: 7
+                    Valor del contador: 8
+                    Valor del contador: 9
+                    Valor del contador: 10</code>
+            </div>        
+        </section>
+        <section class="main-section" id="Sentencias_de_Ramificación">
+            <header class="main-header">Sentencias de Ramificación</header>
+            <p>Las <b>sentencias de ramificación</b> son aquellas que nos permiten romper con la ejecución lineal de un programa.</p>
+            <h1>Break</h1>
+            <p>Ya vimos que en la sentencia selectiva <b>switch</b> se utilizaba la sentencia break para salir de las evaluaciones y así solo ejecutar el bloque de la opción correspondiente. Si bien podemos utilizar la sentencia <b>break</b> con las sentencias repetitivas <b>while, do-while y for</b>. Esta es la que se conoce como sentencia <b>break sin etiquetar.</b></p>
+            <p>Cuando utilicemos el <b>break</b> dentro de uno de estos bucles lo que se conseguirá es salirse de la ejecución del bucle hasta el siguiente bloque de sentencias. Mismo efecto que si la expresión de evaluación hubiese dado <b>false</b>.</p>
+            <p>Así podremos encontrarnos códigos como el siguiente:</p>
+            <div class="code">
+                <code>while (expresion) {
+                    sentencia(s);
+                    break;
+                    sentencias(s);
+                }</code>
+            </div>
+            <p>Al ejecutar la sentencia <b>break</b> ya no ejecutaremos las sentencias que vayan después.</p>
+            <p>El uso del <b>break</b> dentro de estructuras repetitivas suele aparecer cuando estamos realizando la búsqueda de un elemento por una estructura de datos y lo hemos encontrado.</p>
+            <p>Por ejemplo, si tenemos un array y queremos buscar un número dentro del array podríamos tener el siguiente código:</p>
+            <div class="code">
+                <code>int[] numeros = {12,3,4,5,6,7,9,10};
+                    int posicion = 0;
+                    boolean encontrado = false;
+                
+                    while (posicion < numeros.length) {
+                    if (numeros[posicion] == 5) {
+                            encontrado = true;
+                            break;
+                    }
+                    posicion++;
+                    }
+                
+                    if (encontrado) {
+                        System.out.println("El número está en la posición: " + posicion);
+                    } else {
+                        System.out.println("Número no encontrado");
+                    }</code>
+            </div>
+            <p>Las sentencias <b>break</b> se pueden cambiar por <b>variables bandera</b>. Estas <b>variables bandera</b> actúan como cortocircuitos de las expresiones de validación y hacen que salgamos de los bucles.</p>
+            <p>En este caso podríamos haber utilizado la variable “encontrado” como <b>variable bandera</b>. Y podríamos reescribir el código de la siguiente forma:</p>
+            <div class="code">
+                <code>int[] numeros = {12,3,4,5,6,7,9,10};
+                    int posicion = -1;
+                    boolean encontrado = false;
+                
+                    while ((!encontrado) && (posicion&lt;numeros.length)) {
+                    posicion++;
+                    if (numeros[posicion] == 5) {
+                            encontrado = true;
+                    }
+                    }
+                
+                    if (encontrado) {
+                        System.out.println("El número está en la posición: " + posicion);
+                    } else {
+                        System.out.println("Número no encontrado");
+                    }</code>
+            </div>
+            <p>Como podéis ver el código es muy parecido y solo aparece la condición de la <b>variable bandera</b>.</p>
+            <p>Una de las cosas que tenemos que tener en cuenta a la hora de utilizar las sentencias <b>break sin etiquetar</b> es que estas generan que se rompa la secuencia de ejecución de sentencias hasta el primer bloque anidado.</p>
+            <p>Pero, ¿qué sucedería si queremos salir de un conjunto de bucles anidados? Aunque podríamos utilizar múltiples break existe la posibilidad de utilizar sentencias <b>break etiquetadas</b>.</p>
+            <p>Las sentencias <b>break etiquetadas</b> funcionan igual que las <b>break</b> pero al ejecutarse se salen a la siguiente sentencia después del bloque etiquetado.</p>
+            <p>La sintaxis es: </p>
+            <div class="code">
+                <code>break nombre_etiqueta;</code>
+            </div>
+            <p>Veamos como podría ser una estructura de uso de las sentencias <b>break etiquetadas</b>.</p>
+            <div class="code">
+                <code>sentencia(s) iniciales;
+
+                    etiqueta:
+                    while (expresion) {
+                        sentencia(s) bloque1;
+                        while (expresion) {
+                        sentencia(s) bloque2;
+                        break etiqueta;
+                        }
+                    }
+                
+                    sentencias(s) finales;</code>
+            </div>
+            <p>Al ejecutarse se sale de todo el bloque etiquetado como etiqueta y ejecuta las sentencias finales.</p>
+            <p>Esto podemos encontrarlo si estamos recorriendo una matriz para buscar un elemento. Ya que para recorrer una matriz vamos a necesitar dos bucles anidados.</p>
+            <div class="code">
+                <code>int[][] matriz = {
+                    {1,2,3,4},
+                    {5,6,7,8},
+                    {9,10,11,12}
+                };
+                int numeroBuscado = 5;
+              
+                busqueda:
+                for (int x=0; x &lt; matriz.length; x++) {
+                    for (int y=0; y &lt; matriz[x].length; y++) {
+                    if (matriz[x][y] = numeroBuscado) {
+                        encontrado = true;
+                        break busqueda;
+                    }
+                    }
+                }
+              
+                if (encontrado) {
+                S   ystem.out.println(x + "," + y);
+                } else {
+                    System.out.println("No encontrado");
+                }</code>
+            </div>
+            <h1>Continue</h1>
+            <p>Otra sentencia que podemos utilizar en los bucles es la sentencia <b>continue</b>. A ejecutar una La sentencia <b>continue</b> dejaremos de ejecutar las sentencias que quedan para acabar el bloque dentro de un bucle para volver a evaluar una expresión.</p>
+            <p>La estructura de unas sentencia continue sería:</p>
+            <div class="code">
+                <code>while (expresion) {
+                    sentencia(s) iniciales;
+                    continue;
+                    sentencias(s) finales;
+                }</code>
+            </div>
+            <p>Al ejecutarse la sentencia continue nunca se ejecutarán las sentencias finales.</p>
+            <p>De igual manera que sucedía con la sentencia <b>break</b>, podemos realizar <b>continue etiquetados</b>. En este caso la sentencia <b>continue</b> nos llevará directamente a la primera condición de evaluación del bloque.</p>
+            <p>La estructura en este caso sería la siguiente:</p>
+            <div class="code">
+                <code>etiqueta:
+                    while (expresion) {
+                    sentencia(s) iniciales;
+                    while (expresion) {
+                        sentencia(s) iniciales;
+                        continue etiqueta;
+                        sentencia(s) finales;
+                    }
+                    sentencia(s) finales;
+                    }</code>
+            </div>
+            <br>
+            <br>
+        </section>
+        <section class="main-section" id="Arrays">
+            <header class="main-header">Arrays</header>
+            <h1>¿Qué es un array?</h1>
+            <p>Un array Java es una estructura de datos que nos permite almacenar una ristra de datos de un mismo tipo. El tamaño de los arrays se declara en un primer momento y no puede cambiar en tiempo de ejecución como puede producirse en otros lenguajes. La declaración de un array en Java y su inicialización se realiza de la siguiente manera:</p>
+            <div class="code">
+                <code>tipo_dato nombre_array[];
+                    nombre_array = new tipo_dato[tamanio];</code>
+            </div>
+            <p>Por ejemplo, podríamos declarar un array de caracteres e inicializarlo de la siguiente manera:</p>
+            <div class="code">
+                <code>char arrayCaracteres[];
+                    arrayCaracteres = new char[10];</code>
+            </div>
+            <p>Los arrays Java se numeran desde el elemento cero, que sería el primer elemento, hasta el tamaño-1 que sería el último elemento. Es decir, si tenemos un array de diez elementos, el primer elemento sería el cero y el último elemento sería el nueve. Para acceder a un elemento especifico utilizaremos los corchetes de la siguiente forma. Entendemos por acceso, tanto el intentar leer el elemento, como asignarle un valor.</p>
+            <div class="code">
+                <code>arrayCaracteres[numero_elemento];</code>
+            </div>
+            <p>Por ejemplo, para acceder al tercer elemento lo haríamos de la siguiente forma:</p>
+            <div class="code">
+                <code>// Lectura de su valor.
+                    char x = arrayCaracteres[2];
+                
+                    // Asignación de un valor. Como se puede comprobar se pone el  número dos, que coincide con el tercer elemento. Ya que como  dijimos anteriormente el primer elemento es el cero.
+                    arrayCaracteres[2] = 'b';</code>
+            </div>
+            <p>El objeto array, aunque podríamos decir que no existe como tal, posee una variable, la cual podremos utilizar para facilitar su manejo.</p>
+            <h1>Tamaño del array: .length</h1>
+            <p>Este atributo nos devuelve el número de elementos que posee el array. Hay que tener en cuenta que es una variable de solo lectura, es por ello que no podremos realizar una asignación a dicha variable. Por ejemplo esto nos serviría a la hora de mostrar el contenido de los elementos de un array:</p>
+            <div class="code">
+                <code>char array[];
+                    array = new char[10];
+                
+                    for (int x=0;x&ltarray.length;x++)
+                    System.out.printnln(array[x]);</code>
+            </div>
+            <br>
+            <br>
+            <h1>Matrices o Arrays de varios subindices</h1>
+            <p>Podremos declarar arrays Java de varios subíndices, pudiendo tener arrays Java de dos niveles, que serían similares a las matrices, arrays Java de tres niveles, que serían como cubos y así sucesivamente, si bien a partir del tercer nivel se pierde la perspectiva geométrica. Para declarar e inicializar un array de varios subíndices lo haremos de la siguiente manera:</p>
+            <div class="code">
+                <code>tipo_dato nombre_array[][];
+                    nombre_array = new tipo_dato[tamanio][tamanio];</code>
+            </div>
+            <p>De esta forma podemos declarar una matriz Java de 2x2 de la siguiente forma:</p>
+            <div class="code">
+                <code>int matriz[][];
+                    matriz = new int[2][2];</code>
+            </div>
+            <p>El acceso se realiza de la misma forma que antes:</p>
+            <div class="code">
+                <code>int x = matriz[1][1]; // Para leer el contenido de un elemento
+                    matriz[1][1] = x;     // Para asignar un valor.</code>
+            </div>
+            <p>Hay que tener en cuenta que para mostrar su contenido tendremos que utilizar dos bucles. Para saber el número de columnas lo haremos igual que antes mediante la variable .length, pero para saber el numero de filas que contiene cada columna lo tendremos que realizar de la siguiente manera:</p>
+            <div class="code">
+                <code>matriz[numero_elemento].lenght;</code>
+            </div>
+            <p>Nuestra lectura de los elementos de una matriz quedaría de la siguiente forma:</p>
+            <div class="code">
+                <code>int matriz[][];
+                    matriz = new int[4][4];
+                    for (int x=0; x < matrix.length; x++) {
+                    for (int y=0; y < matriz[x].length; y++) {
+                        System.out.println (matriz[x][y]);
+                    }
+                    }</code>
+            </div>
+            <br>
+            <br>
+            <h1>Inicialización de Arrays</h1>
+            <p>Existe una forma de inicializar un array en Java con el contenido, amoldándose su tamaño al número de elementos a los que le inicialicemos. Para inicializar un array Java utilizaremos las llaves de la siguiente forma:</p>
+            <div class="code">
+                <code>tipo_dato array[] = {elemento1,elemento2,...,elementoN};</code>
+            </div>
+            <p>Así, por ejemplo, podríamos inicializar un array Java o una matriz Java:</p>
+            <div class="code">
+                <code>// Tenemos un array de 5 elementos.
+                    char array[] = {'a','b','c','d','e'};
+                
+                    / Tenemos un array de 4x4 elementos.
+                    int array[][] = { {1,2,3,4}, {5,6,7,8}};</code>
+            </div>
+            <br>
+            <br>
+        </section>
+        <section class="main-section" id="Referencias">
+            <header class="main-header">Referencias</header>
+            <ul>
+                <li>Toda la documentación fue tomada de <a class="reference" href="https://www.manualweb.net">manuelweb</a></li>
+            </ul>
+        </section>
+    </main>    
+</body>
+</html>

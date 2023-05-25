@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    display: block;
+}
+
+nav {
+    display: block;
+    position: fixed;
+    border-right: 1px solid black;
+    height: 100%;
+    width: 350px;
+    top: 0px;
+    left: 0px;
+    min-width: 290px;
+    background-color: beige;
+}
+
+section {
+    display: block;
+    margin-left: 350px; 
+    text-align: justify;
+    padding: 15px
+}
+
+header {
+    font-size: 40px;
+    text-align: center;
+}
+
+nav ul {
+    display: block;
+    padding: 0;
+    list-style: disc;
+}
+
+nav ul li {
+    border-top: 2px solid black;
+    list-style: disc;
+    position: relative;
+    width: 100%;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 50px;
+}
+
+.nav-link{
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.main-header {
+    text-align: left;
+}
+
+img {
+    height: 100px;
+    width: 200px;
+    margin: 0 20%; 
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.code {
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 75%;
+    background-color: #A8F5D0;
+    opacity: .8
+}
+
+code {
+    white-space: pre-wrap
+}
+
+#main-doc {
+    width: 90%;
+}
+
+table {
+    width: 85%;
+    margin-bottom: 15px
+}
+
+table tbody tr td {
+    padding: 8px;
+    line-height: 1.2;
+    vertical-align: top;
+}
+
+table thead tr th {
+    padding: 8px;
+    line-height: 1.2;
+    vertical-align: top;
+}
+
+.main-section ul li {
+    line-height: 2.5;
+    vertical-align: top;
+    padding: 8px;
+    font-size: 18px
+}
+
+.main-header {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
+@media all and (max-width: 750px){
+    #navbar {
+        width:200px;
+    }
+
+    nav ul li {
+        padding-inline-start: 0px;
+    }
+}

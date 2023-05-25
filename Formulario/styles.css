@@ -1,0 +1,88 @@
+
+
+body {
+    background-image: url("https://r-marcas.com/wp-content/uploads/2015/05/Fondo-Formularios.gif");
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+h1 {
+    text-align: center;
+    color: #E6F389;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+}
+
+p {
+    font-size: 23px;
+    text-align:center;
+    margin: 0.5rem;
+    color: #E6F389;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+fieldset {
+    border: none;
+    padding: 1rem;
+    background-color: #89CCF3;
+}
+
+input, textarea, select {
+    display: block;
+    margin: 0.5rem 0;
+    background-color: #0a0a23;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+}
+
+::placeholder {
+    color: whitesmoke;
+    opacity: 60%;
+}
+
+.submit {
+    display: block;
+    text-align: center;
+    background-color: greenyellow;
+    margin: 1rem auto;
+    width: 0;
+    height: 2rem;
+    border-color: greenyellow;
+    min-width: 300px;
+    border-radius: 25px;
+    color: black;
+}
+
+.inline {
+    display: inline-block;
+    margin: 0 0 2px 0;
+    width: unset;
+}
+
+.form {
+    width:60vw;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+div {
+    width: 60%;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
